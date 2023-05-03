@@ -1,5 +1,12 @@
 <h3>Ini Coba Component</h3>
-<p>
+
+<!-- Menampilkan bgColor sesuai status -->
+<!-- function dari file .ts -->
+<!-- ngStyle to dynamically css, ngClass = dynamically class  -->
+
+<p [ngStyle]="{backgroundColor:tentukanWarna()}"
+[ngClass]="{online: statusCoba==='online'}"
+>
   {{ "String Interpolation: " }} coba nomor {{ cobaNomor }} status={{
     getStatusCoba()
   }}

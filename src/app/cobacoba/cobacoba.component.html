@@ -1,2 +1,47 @@
 <app-coba></app-coba>
 <app-coba></app-coba>
+<button 
+class="btn btn-primary"
+[disabled]="!izinkanCoba" 
+(click)="onCreateCoba()">Add Coba</button>
+<p [innerText]="!izinkanCoba"></p>
+<p>{{cobaStatus}}</p>
+
+<!-- two way event binding -->
+<input type="text"
+class="form-control"
+(input)="twoWayBindFunc($event)"
+>
+
+<!-- Two Way Data Binding -->
+<input type="text"
+class="form-control"
+[(ngModel)]="twoWayBind"
+>
+
+<!-- hasil dari input -->
+<p>{{twoWayBind}} << data ini databinding dengan input diatas</p>
+
+<!-- Assignment 2 -->
+<input type="text"
+class="form-control"
+[(ngModel)]="usernameExerc"
+/>
+<p>{{usernameExerc}}</p>
+<button
+class="btn btn-warning"
+(click)="usernameExerc=''"
+[disabled]="usernameExerc === ''"
+>Reset</button>
+<hr>
+
+<!-- ngIf output data conditionally -->
+<!-- * for  manipulate structure DOM-->
+<p *ngIf="outputNama; else beforeChg">namanya={{twoWayBind}}</p>
+<ng-template #beforeChg>
+    <p>DOM BELUM TERGANTI</p>
+</ng-template>
+<button
+class="btn btn-warning"
+(click)="namaCoba()"
+>Ganti DOM</button>
